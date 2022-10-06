@@ -38,8 +38,7 @@ def main():
         user = f"{fake.unique.user_name()}_{fake.unique.word().reverse()}{random.randint(1965, 2010)}"
         if user in users:
             print("this login is already exist")
-    else:
-        users.append(user)
+    users.append(user)
     validate(users=users, amount=amount)
 
 
