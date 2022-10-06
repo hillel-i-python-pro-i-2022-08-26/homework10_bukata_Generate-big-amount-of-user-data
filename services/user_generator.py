@@ -10,6 +10,6 @@ fake = Faker()
 
 def user() -> User:
     return User(
-        login=f"{fake.unique.user_name()}_{fake.unique.word()}{random.randint(1965, 2010)}",
+        login=f"{fake.unique.user_name()}{fake.bothify(text='??', letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ')}_{fake.word()}{random.randint(1965, 2010)}",
         password=f"{fake.unique.password()}{random.randint(1, 100000)}",
     )

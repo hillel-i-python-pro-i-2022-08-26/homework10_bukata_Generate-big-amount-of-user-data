@@ -31,16 +31,12 @@ def generate_users(amount: int) -> Iterator[UserProtocol]:
 
 
 def main():
-    amount = 4
-    user = None
+    amount = 100000
     users = list(generate_users(amount=amount))
-    if user in users:
-        user = f"{fake.unique.user_name()}_{fake.unique.word().reverse()}{random.randint(1965, 2010)}"
-        if user in users:
-            print("this login is already exist")
-    users.append(user)
     validate(users=users, amount=amount)
 
+
+#    return users
 
 if __name__ == "__main__":
     main()
