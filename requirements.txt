@@ -1,7 +1,6 @@
 # Core
-# For fake_name function
-
-
+# For fake data function
+faker==14.2.0
 # [code_style]-[BEGIN]
 # Pre-commit hook.
 pre-commit==2.20.0
