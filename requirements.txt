@@ -1,0 +1,14 @@
+# Core
+# For fake_name function
+
+
+# [code_style]-[BEGIN]
+# Pre-commit hook.
+pre-commit==2.20.0
+# Upgrade syntax.
+pyupgrade==2.38.2
+# Formatter. Apply codestyle.
+black==22.8.0
+# Check codestyle
+flake8==5.0.4
+# [code_style]-[END]
