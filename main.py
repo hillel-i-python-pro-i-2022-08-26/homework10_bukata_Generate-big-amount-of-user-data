@@ -34,9 +34,8 @@ def main():
     amount = 100000
     users = list(generate_users(amount=amount))
     validate(users=users, amount=amount)
+    return users
 
-
-#    return users
 
 if __name__ == "__main__":
     main()
