@@ -1,10 +1,11 @@
-from typing import Protocol, TypeAlias, TypedDict
+from typing import Protocol, TypeAlias
 from collections.abc import Iterator
 
 from faker import Faker
 import random
 
-from services.user_generator import user
+from moduls.user_class import User
+from services.user_generator import get_login
 
 fake = Faker()
 
@@ -25,19 +26,31 @@ def validate(users: list[UserProtocol], amount: int) -> None:
         )
 
 
-def generate_users(amount: int) -> Iterator[UserProtocol]:
-    for _ in range(amount):
-        yield user()
+def generate_users(amount: int) -> Iterator[User]:
+    logins = set()
+    while len(logins) < amount:
+        login = get_login(key=amount)
+
+        if login in logins:
+            continue
+
+        logins.add(login)
+
+        yield User(
+            login=login,
+            password=f"{fake.unique.password()}{random.randint(1, 100000)}",
+        )
 
 
 def main():
     amount = 100000
     users = list(generate_users(amount=amount))
     validate(users=users, amount=amount)
-    return users
+    print(users)
 
 
 if __name__ == "__main__":
     main()
+
 
 # Press ⌘F8 to toggle the breakpoint.
