@@ -46,11 +46,10 @@ def main():
     amount = 100000
     users = list(generate_users(amount=amount))
     validate(users=users, amount=amount)
-    print(users)
+
+
+#    print(users)
 
 
 if __name__ == "__main__":
     main()
-
-
-# Press ⌘F8 to toggle the breakpoint.
